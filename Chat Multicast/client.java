@@ -35,17 +35,14 @@ public class client {
                     String[] received_parts = received.split("##login##");
                     
                     if(get_user_id() == -1){
-                        //received_parts[2] = received_parts[2].replace("##user_id##", "");
-                        //System.out.println();
-                        //user_id = String.valueOf(received_parts[3]);
-                        //System.err.println("oque tem no 3 " + received_parts[2]);
                         set_user_id(Integer.parseInt(received_parts[0]));
                     }
-                        //user_id = String.valueOf(received);
-                        //System.out.println(get_user_id() != Integer.parseInt(received_parts[0]));
                     if(get_user_id() != Integer.parseInt(received_parts[0])){
-                        
-                        System.out.println(received_parts[1] + ": " + (received_parts[2].replace("##need_id##", "")));
+                        if(received_parts[2].contains("##need_id##")){
+                            received_parts[2] = received_parts[2].replace("##need_id##", "");
+                        }
+
+                        System.out.println(received_parts[1] + ": " + received_parts[2]);
                     }
                 }
             } catch (IOException e) {
