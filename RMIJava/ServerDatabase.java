@@ -53,7 +53,7 @@ public class ServerDatabase extends UnicastRemoteObject implements IDatabase {
             List<double[]> rows = new ArrayList<>();
             String line = null;
             while ((line = br.readLine()) != null) {
-                String[] values = line.split(",");  // Assuming comma-separated values
+                String[] values = line.split(",");  
                 double[] row = Arrays.stream(values)
                                     .mapToDouble(Double::parseDouble)
                                     .toArray();
